@@ -6,7 +6,7 @@ class User extends AppModel {
 	public $avatarUploadDir = 'img/avatars';
     
 	public $validate = array(
-        'username' => array(
+        'user_name' => array(
             'nonEmpty' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'A username is required',
@@ -26,7 +26,7 @@ class User extends AppModel {
 				'message' => 'Username can only be letters, numbers and underscores'
 			),
         ),
-        'password' => array(
+        'user_password' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'A password is required'
@@ -43,12 +43,12 @@ class User extends AppModel {
                 'message' => 'Please confirm your password'
             ),
 			 'equaltofield' => array(
-				'rule' => array('equaltofield','password'),
+				'rule' => array('equaltofield','user_password'),
 				'message' => 'Both passwords must match.'
 			)
         ),
 		
-		'email' => array(
+		'user_email' => array(
 			'required' => array(
 				'rule' => array('email', true),    
 				'message' => 'Please provide a valid email address.'    
@@ -62,7 +62,7 @@ class User extends AppModel {
 				'message' => 'Usernames must be between 6 to 60 characters'
 			)
 		),
-        'role' => array(
+        'user_role' => array(
             'valid' => array(
                 'rule' => array('inList', array('king', 'queen', 'bishop', 'rook', 'knight', 'pawn')),
                 'message' => 'Please enter a valid role',
@@ -102,10 +102,10 @@ class User extends AppModel {
 			array(
 				'fields' => array(
 					'User.id',
-					'User.username'
+					'User.user_name'
 				),
 				'conditions' => array(
-					'User.username' => $check['username']
+					'User.user_name' => $check['user_name']
 				)
 			)
 		);
@@ -135,7 +135,7 @@ class User extends AppModel {
 					'User.id'
 				),
 				'conditions' => array(
-					'User.email' => $check['email']
+					'User.user_email' => $check['user_email']
 				)
 			)
 		);
