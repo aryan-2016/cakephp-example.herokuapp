@@ -33,10 +33,29 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
   
+  public $components = array(
+		'DebugKit.Toolbar',
+		'Session',
+        'Auth' => array(
+            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
+            'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+			'authError' => 'You must be logged in to view this page.',
+			'loginError' => 'Invalid Username or Password entered, please try again.'
+ 
+        ));
+  
   public function  beforeFilter() {
     //parent::beforeFilter();
     
     //echo '<br>cakephp version=' . Configure::version();
+    
+    $this->Auth->allow('login');
 }
+
+public function isAuthorized($user) {
+		// Here is where we should verify the role and give access based on role
+		
+		return true;
+	}
 
 }
