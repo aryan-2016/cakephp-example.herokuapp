@@ -36,7 +36,7 @@ class AppController extends Controller {
   public function  beforeFilter() {
     //parent::beforeFilter();
     
-    echo '<br>cakephp version=' . Configure::version();
+    //echo '<br>cakephp version=' . Configure::version();
 }
 
 }
