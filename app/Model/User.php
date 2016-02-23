@@ -178,8 +178,8 @@ class User extends AppModel {
 	 */
 	 public function beforeSave($options = array()) {
 		// hash our password
-		if (isset($this->data[$this->alias]['password'])) {
-			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
+		if (isset($this->data[$this->alias]['user_password'])) {
+			$this->data[$this->alias]['user_password'] = AuthComponent::password($this->data[$this->alias]['user_password']);
 		}
 		
 		// if we get a new password, hash it
