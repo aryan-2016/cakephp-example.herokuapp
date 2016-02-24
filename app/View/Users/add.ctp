@@ -5,8 +5,8 @@
     <fieldset>
         <legend><?php echo __('Add User'); ?></legend>
         <?php echo $this->Form->input('user_name');
-		echo $this->Form->input('user_email');
-        echo $this->Form->input('user_password');
+		echo $this->Form->input('user_email', array('type'=>'email'));
+        echo $this->Form->input('user_password', array('type'=>'password'));
 		echo $this->Form->input('password_confirm', array('label' => 'Confirm Password *', 'maxLength' => 255, 'title' => 'Confirm password', 'type'=>'password'));
         echo $this->Form->input('user_role', array(
             'options' => array( 'king' => 'King', 'queen' => 'Queen', 'rook' => 'Rook', 'bishop' => 'Bishop', 'knight' => 'Knight', 'pawn' => 'Pawn')
