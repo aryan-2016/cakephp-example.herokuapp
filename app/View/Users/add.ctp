@@ -8,7 +8,7 @@
 		echo $this->Form->input('user_email');
         echo $this->Form->input('user_password');
 		echo $this->Form->input('password_confirm', array('label' => 'Confirm Password *', 'maxLength' => 255, 'title' => 'Confirm password', 'type'=>'password'));
-        echo $this->Form->input('role', array(
+        echo $this->Form->input('user_role', array(
             'options' => array( 'king' => 'King', 'queen' => 'Queen', 'rook' => 'Rook', 'bishop' => 'Bishop', 'knight' => 'Knight', 'pawn' => 'Pawn')
         ));
 		
