@@ -184,7 +184,7 @@ class User extends AppModel {
 		
 		// if we get a new password, hash it
 		if (isset($this->data[$this->alias]['password_update'])) {
-			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password_update']);
+			$this->data[$this->alias]['user_password'] = AuthComponent::password($this->data[$this->alias]['password_update']);
 		}
 	
 		// fallback to our parent
