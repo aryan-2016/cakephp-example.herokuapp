@@ -4,11 +4,11 @@
     <thead>
 		<tr>
 			<th><?php echo $this->Form->checkbox('all', array('name' => 'CheckAll',  'id' => 'CheckAll')); ?></th>
-			<th><?php echo $this->Paginator->sort('username', 'Username');?>  </th>
-			<th><?php echo $this->Paginator->sort('email', 'E-Mail');?></th>
-			<th><?php echo $this->Paginator->sort('created', 'Created');?></th>
-			<th><?php echo $this->Paginator->sort('modified','Last Update');?></th>
-			<th><?php echo $this->Paginator->sort('role','Role');?></th>
+			<th><?php echo $this->Paginator->sort('user_name', 'Username');?>  </th>
+			<th><?php echo $this->Paginator->sort('user_email', 'E-Mail');?></th>
+			<th><?php echo $this->Paginator->sort('created_time', 'Created');?></th>
+			<th><?php echo $this->Paginator->sort('last_modified_time','Last Update');?></th>
+			<th><?php echo $this->Paginator->sort('user_role','Role');?></th>
 			<th><?php echo $this->Paginator->sort('status','Status');?></th>
 			<th>Actions</th>
 		</tr>
@@ -20,11 +20,11 @@
 		<?php if($count % 2): echo '<tr>'; else: echo '<tr class="zebra">' ?>
 		<?php endif; ?>
 			<td><?php echo $this->Form->checkbox('User.id.'.$user['User']['id']); ?></td>
-			<td><?php echo $this->Html->link( $user['User']['username']  ,   array('action'=>'edit', $user['User']['id']),array('escape' => false) );?></td>
-			<td style="text-align: center;"><?php echo $user['User']['email']; ?></td>
-			<td style="text-align: center;"><?php echo $this->Time->niceShort($user['User']['created']); ?></td>
-			<td style="text-align: center;"><?php echo $this->Time->niceShort($user['User']['modified']); ?></td>
-			<td style="text-align: center;"><?php echo $user['User']['role']; ?></td>
+			<td><?php echo $this->Html->link( $user['User']['user_name']  ,   array('action'=>'edit', $user['User']['id']),array('escape' => false) );?></td>
+			<td style="text-align: center;"><?php echo $user['User']['user_email']; ?></td>
+			<td style="text-align: center;"><?php echo $this->Time->niceShort($user['User']['created_time']); ?></td>
+			<td style="text-align: center;"><?php echo $this->Time->niceShort($user['User']['last_modified_time']); ?></td>
+			<td style="text-align: center;"><?php echo $user['User']['user_role']; ?></td>
 			<td style="text-align: center;"><?php echo $user['User']['status']; ?></td>
 			<td >
 			<?php echo $this->Html->link(    "Edit",   array('action'=>'edit', $user['User']['id']) ); ?> | 
